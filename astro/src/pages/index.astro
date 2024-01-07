@@ -1,0 +1,19 @@
+---
+import { sanityClient } from "sanity:client";
+const projectData = await sanityClient.fetch(`*[_type == 'project'][0]{
+	projectName,
+	}`);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{projectData.projectName}</title>
+  </head>
+  <body>
+    <h1>{projectData.projectName}</h1>
+  </body>
+</html>
